@@ -33,6 +33,13 @@ export default function Authenticated({
                                 >
                                     Dashboard
                                 </NavLink>
+
+                                <NavLink
+                                    href={route('vgdashboard')}
+                                    active={route().current('vgdashboard')}
+                                >
+                                    VG Dashboard
+                                </NavLink>
                             </div>
                         </div>
 
