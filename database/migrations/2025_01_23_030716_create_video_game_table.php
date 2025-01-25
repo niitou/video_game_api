@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('video_game', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->unique(true)->nullable(false);
             $table->date('release_date')->nullable(true);
             $table->string('developer')->nullable(true);
             $table->string('publisher')->nullable(true);
