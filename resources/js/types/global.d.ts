@@ -8,6 +8,16 @@ declare global {
         axios: AxiosInstance;
     }
 
+    interface ModalComponentProps {
+        id : string,
+        vg : any
+    }
+
+    interface AddVGComponentProps {
+        className : string,
+        disabled : boolean
+    }
+
     /* eslint-disable no-var */
     var route: typeof ziggyRoute;
 }
