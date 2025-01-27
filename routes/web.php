@@ -19,9 +19,7 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get("/vgdashboard", function () {
-    return Inertia::render("VGDashboard");
-})->middleware(["auth","verified"])->name("vgdashboard");
+Route::get("/vgdashboard", [VideoGameController::class, 'index'])->middleware(["auth","verified"])->name("vgdashboard");
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -29,10 +27,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     /* Video Game */
-    Route::get('/vgdashboard', [VideoGameController::class, 'index'])->name('vgdashboard.index');
-    Route::post('/addVg', [VideoGameController::class, 'store'])->name('videoGame.store');
-    Route::patch('/updateVg/{id}', [VideoGameController::class, 'update'])->name('videoGame.update');
-    Route::delete('/deleteVg/{id}', [VideoGameController::class, 'destroy'])->name('videoGame.destroy');
+    Route::post('/addVg', [VideoGameController::class, 'store'])->name('addVideoGame.store');
+    Route::patch('/updateVg/{id}', [VideoGameController::class, 'update'])->name('updateVideoGame.update');
+    Route::delete('/deleteVg/{id}', [VideoGameController::class, 'destroy'])->name('deleteVideoGame.destroy');
 });
 
 
