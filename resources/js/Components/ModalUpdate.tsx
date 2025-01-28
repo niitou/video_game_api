@@ -5,7 +5,7 @@ import { router } from "@inertiajs/react";
 const ModalUpdate: React.FC<ModalComponentProps> = ({ id, vg }) => {
   const { data: editData, setData: setEditData, processing, reset } = useForm({
     title: vg.title,
-    release_data: vg.release_date,
+    release_date: vg.release_date,
     developer: vg.developer,
     publisher: vg.publisher,
     product_rating: vg.product_rating,
@@ -20,7 +20,7 @@ const ModalUpdate: React.FC<ModalComponentProps> = ({ id, vg }) => {
     setEditData("developer", vg.developer);
     setEditData("product_rating", vg.product_rating);
     setEditData("publisher", vg.publisher);
-    setEditData("release_data", vg.release_date);
+    setEditData("release_date", vg.release_date);
   }, [vg]);
 
   const handleSubmit = (e: any) => {
@@ -61,7 +61,7 @@ const ModalUpdate: React.FC<ModalComponentProps> = ({ id, vg }) => {
               </div>
               <div>
                 <label className="block text-sm font-medium">Release Date:</label>
-                <input type="date" value={editData.release_data.split("T")[0]} onChange={(e) => setEditData("release_data", e.target.value)} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+                <input type="date" value={editData.release_date.split("T")[0]} onChange={(e) => setEditData("release_date", e.target.value)} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
               </div>
               <div>
                 <label className="block text-sm font-medium">Developer:</label>
