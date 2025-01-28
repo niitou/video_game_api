@@ -28,8 +28,8 @@ class VideoGameController extends Controller
             'genres' => 'nullable|string|max:255',
             'product_rating' => 'nullable|in:C,E,E+10,T,M,Ao', // Enum validation
             'user_score' => 'nullable|numeric|between:0,10', // Validates float and range
-            'platforms' => 'required|array', // Ensures platforms is an array
-            'platforms.*' => 'string|max:255', // Ensures each platform in the array is a string
+            'platforms' => 'nullable|array', // Ensures platforms is an array
+            'platforms.*' => 'nullable|string|max:255', // Ensures each platform in the array is a string
         ]));
 
         return back()->with('message', 'Video game added successfully');
@@ -52,7 +52,7 @@ class VideoGameController extends Controller
             'product_rating' => 'nullable|in:C,E,E+10,T,M,Ao', // Enum validation
             'user_score' => 'nullable|numeric|between:0,10', // Numeric validation
             'platforms' => 'nullable|array', // Ensures platforms is an array
-            'platforms.*' => 'string|max:255', // Each platform in the array must be a string
+            'platforms.*' => 'nullable|string|max:255', // Each platform in the array must be a string
         ]);
 
         $video_game = $model->findOrFail($vg_id);
