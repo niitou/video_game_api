@@ -23,7 +23,10 @@ const AddGameButton: React.FC<AddVGComponentProps> = ({ className = "", disabled
         e.preventDefault();
 
         router.post("/addVg", data, {
-            onSuccess: () => { },
+            onSuccess: () => {
+                reset(); // Reset the form fields
+                (document.getElementById("my_modal_2") as HTMLDialogElement)?.close(); // Close the modal
+            },
         });
     };
 
