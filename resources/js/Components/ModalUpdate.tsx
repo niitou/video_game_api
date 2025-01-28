@@ -61,7 +61,7 @@ const ModalUpdate: React.FC<ModalComponentProps> = ({ id, vg }) => {
               </div>
               <div>
                 <label className="block text-sm font-medium">Release Date:</label>
-                <input type="date" value={editData.release_date.split("T")[0]} onChange={(e) => setEditData("release_date", e.target.value)} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+                <input type="date" value={editData.release_date?.split("T")[0]} onChange={(e) => setEditData("release_date", e.target.value)} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
               </div>
               <div>
                 <label className="block text-sm font-medium">Developer:</label>
