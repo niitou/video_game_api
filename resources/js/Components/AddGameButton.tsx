@@ -85,13 +85,22 @@ const AddGameButton: React.FC<AddVGComponentProps> = ({ className = "", disabled
                                 <InputError className="mt-2" message={errors.user_score} />
                             </div>
 
-                            {/* User Score */}
+                            {/* Release Date */}
                             <div>
                                 <InputLabel htmlFor="release_date" value="Release Date" />
 
                                 <TextInput id="release_date" type="date" className="mt-1 block w-full" value={data.release_date} onChange={(e) => setData("release_date", e.target.value)} isFocused autoComplete="release_date" />
 
                                 <InputError className="mt-2" message={errors.release_date} />
+                            </div>
+
+                            {/* Genres */}
+                            <div>
+                                <InputLabel htmlFor="genres" value="Genres" />
+
+                                <TextInput id="genres" className="mt-1 block w-full" value={data.genres} onChange={(e) => setData("genres", e.target.value)} isFocused autoComplete="genres" />
+
+                                <InputError className="mt-2" message={errors.genres} />
                             </div>
 
                             <button className={`w-full text-center items-center px-4 py-2 bg-green-600 hover:bg-green-700 focus:bg-green-800 active:bg-green-900 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest  focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150 ${disabled && "opacity-25"} `} disabled={processing}>

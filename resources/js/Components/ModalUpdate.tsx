@@ -10,6 +10,8 @@ const ModalUpdate: React.FC<ModalComponentProps> = ({ id, vg }) => {
     publisher: vg.publisher,
     product_rating: vg.product_rating,
     user_score: vg.user_score,
+    genres: vg.genres,
+    platforms: vg.platforms,
     // Sill missing genres and platforms
   });
 
@@ -59,18 +61,22 @@ const ModalUpdate: React.FC<ModalComponentProps> = ({ id, vg }) => {
                 <label className="block text-sm font-medium">Title:</label>
                 <input type="text" value={editData.title} onChange={(e) => setEditData("title", e.target.value)} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
               </div>
+
               <div>
                 <label className="block text-sm font-medium">Release Date:</label>
                 <input type="date" value={editData.release_date?.split("T")[0]} onChange={(e) => setEditData("release_date", e.target.value)} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
               </div>
+
               <div>
                 <label className="block text-sm font-medium">Developer:</label>
                 <input type="text" value={editData.developer} onChange={(e) => setEditData("developer", e.target.value)} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
               </div>
+
               <div>
                 <label className="block text-sm font-medium">Publisher:</label>
                 <input type="text" value={editData.publisher} onChange={(e) => setEditData("publisher", e.target.value)} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
               </div>
+
               <div>
                 <label className="block text-sm font-medium">Product Rating:</label>
                 <select value={editData.product_rating} onChange={(e) => setEditData("product_rating", e.target.value)} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
@@ -91,10 +97,17 @@ const ModalUpdate: React.FC<ModalComponentProps> = ({ id, vg }) => {
                   ))}
                 </select>
               </div>
+
               <div>
                 <label className="block text-sm font-medium">User Score:</label>
                 <input type="number" step={"0.1"} value={editData.user_score} onChange={(e) => setEditData("user_score", e.target.value)} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
               </div>
+
+              <div>
+                <label className="block text-sm font-medium">Genres:</label>
+                <input type="text" value={editData.genres} onChange={(e) => setEditData("genres", e.target.value)} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+              </div>
+
               <button type="submit" className="w-full text-center items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 focus:bg-blue-800 active:bg-blue-900 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150" disabled={processing}>
                 Confirm Update
               </button>
