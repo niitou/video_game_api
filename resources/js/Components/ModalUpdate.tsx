@@ -69,17 +69,17 @@ const ModalUpdate: React.FC<ModalComponentProps> = ({ id, vg }) => {
 
               <div>
                 <label className="block text-sm font-medium">Developer:</label>
-                <input type="text" value={editData.developer} onChange={(e) => setEditData("developer", e.target.value)} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+                <input type="text" value={editData.developer ?? ""} onChange={(e) => setEditData("developer", e.target.value)} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
               </div>
 
               <div>
                 <label className="block text-sm font-medium">Publisher:</label>
-                <input type="text" value={editData.publisher} onChange={(e) => setEditData("publisher", e.target.value)} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+                <input type="text" value={editData.publisher ?? ""} onChange={(e) => setEditData("publisher", e.target.value)} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
               </div>
 
               <div>
                 <label className="block text-sm font-medium">Product Rating:</label>
-                <select value={editData.product_rating} onChange={(e) => setEditData("product_rating", e.target.value)} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                <select value={editData.product_rating ?? ""} onChange={(e) => setEditData("product_rating", e.target.value)} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
                   <option value="" disabled>
                     Select a rating
                   </option>
@@ -100,12 +100,12 @@ const ModalUpdate: React.FC<ModalComponentProps> = ({ id, vg }) => {
 
               <div>
                 <label className="block text-sm font-medium">User Score:</label>
-                <input type="number" step={"0.1"} value={editData.user_score} onChange={(e) => setEditData("user_score", e.target.value)} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+                <input type="number" step={"0.1"} value={editData.user_score ?? 0} onChange={(e) => setEditData("user_score", parseFloat(e.target.value))} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
               </div>
 
               <div>
                 <label className="block text-sm font-medium">Genres:</label>
-                <input type="text" value={editData.genres} onChange={(e) => setEditData("genres", e.target.value)} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+                <input type="text" value={editData.genres?.toString()} onChange={(e) => setEditData("genres", e.target.value)} className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
               </div>
 
               <button type="submit" className="w-full text-center items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 focus:bg-blue-800 active:bg-blue-900 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150" disabled={processing}>
