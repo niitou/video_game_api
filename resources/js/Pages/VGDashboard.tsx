@@ -2,8 +2,9 @@ import Authenticated from '@/Layouts/AuthenticatedLayout'
 import AddGameButton from "@/Components/AddGameButton";
 import ModalUpdate from "@/Components/ModalUpdate";
 import ModalDelete from "@/Components/ModalDelete";
+import { Link } from '@inertiajs/react';
 
-function VGDashboard({ vgData, count }) {
+const VGDashboard: React.FC<{ vgData: Pagination; count: number }> = ({ vgData, count }) => {
     return (
         <Authenticated header={
             <h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
@@ -30,7 +31,7 @@ function VGDashboard({ vgData, count }) {
                                 </tr>
                             </thead>
                             <tbody>
-                                {vgData.map((vg) => (
+                                {vgData.data.map((vg) => (
                                     <tr className="text-black hover:bg-slate-300" key={vg.id}>
                                         <td>{vg.title}</td>
                                         <td>
@@ -50,6 +51,20 @@ function VGDashboard({ vgData, count }) {
                                 ))}
                             </tbody>
                         </table>
+
+                        {/* Pagination Links */}
+                        <div className="mt-4 flex justify-center">
+                            <div className="join">
+                                {vgData.links.map((link, index) => (
+                                    <Link
+                                        key={index}
+                                        href={link.url || "#"}
+                                        className={`join-item btn btn-sm ${link.active ? "btn-primary" : "btn-outline"} m-[5px]`}
+                                        dangerouslySetInnerHTML={{ __html: link.label }}
+                                    />
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

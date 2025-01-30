@@ -13,7 +13,7 @@ class VideoGameController extends Controller
     public function index(VideoGame $model)
     {
         return Inertia::render('VGDashboard', [
-            'vgData' => $model->all(),
+            'vgData' => $model->paginate(25),
             'count' => $model->count(),
         ]);
     }
